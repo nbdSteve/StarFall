@@ -1,0 +1,6 @@
+command:
+  reload: starfall.cmd.reload
+  help: starfall.cmd.help
+  give: starfall.cmd.give
+  start: starfall.cmd.start
+  radius: starfall.cmd.radius

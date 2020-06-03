@@ -1,0 +1,19 @@
+help:
+  action-bar: false
+  text:
+    - '&5&lPlugin&d| &7Example help message.'
+
+reload:
+  action-bar: false
+  text:
+    - '&5&lPlugin&d| &7Example reload message&7.'
+
+starfall-spawn:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7A new starfall has spawned at &eX: {block-x}&7, &eZ: {block-z}&7.'
+
+starfall-timer:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7A new starfall will spawn in &e{hours} &7H, &e{minutes} &7M, &e{seconds} &7S.'

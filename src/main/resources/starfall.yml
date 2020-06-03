@@ -1,0 +1,33 @@
+persistent-uuid: 79cbf7a6-c05a-446a-ac51-144e2f2a646d
+
+spawned-block:
+  height: 255
+  material: 'ender_portal_frame'
+  data: 0
+
+event-duration: 60
+
+event-cooldown: 60
+
+min-player-limit: 1
+
+default-world: 'world'
+
+blocked-worlds:
+  - 'world_the_end'
+  - 'world_nether'
+
+item:
+  material: 'redstone_torch_on'
+  data: 0
+  name: '&c&lStarfall Spark'
+  lore:
+    - ''
+    - '&7&o((&4&oRight-click with this item to'
+    - '&4&otrigger a starfall event for the server&7&o.))'
+    - ''
+  enchantments:
+    - 'lure:1'
+  item-flags:
+    - 'hide_attributes'
+  unbreakable: false

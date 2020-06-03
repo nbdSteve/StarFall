@@ -1,0 +1,24 @@
+insufficient-permission:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7You do not have the permission node (&b{node&7) required to use that.'
+
+incorrect-args:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7The number of arguments you entered is incorrect.'
+
+invalid-command:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7The command you entered is invalid.'
+
+invalid-radius:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7The radius you entered is invalid, please enter an integer value.'
+
+radius-set:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7You have successfully set the radius of the starfall to &e{radius} &7blocks, the center is &eX: {block-x}&7, &eZ: {block-z}&7.'
