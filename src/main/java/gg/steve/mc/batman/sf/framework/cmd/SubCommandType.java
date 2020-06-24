@@ -8,6 +8,7 @@ public enum SubCommandType {
     GIVE_CMD(new GiveSubCmd()),
     HELP_CMD(new HelpSubCmd()),
     GIVE_ITEM(new GiveItemSubCmd()),
+    END_CMD(new EndSubCmd()),
     RELOAD_CMD(new ReloadSubCmd());
 
     private SubCommand sub;

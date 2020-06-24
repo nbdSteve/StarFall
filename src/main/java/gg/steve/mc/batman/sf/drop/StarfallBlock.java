@@ -1,12 +1,15 @@
 package gg.steve.mc.batman.sf.drop;
 
+import com.gmail.filoghost.holographicdisplays.api.Hologram;
+import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
+import gg.steve.mc.batman.sf.Starfall;
+import gg.steve.mc.batman.sf.framework.utils.ColorUtil;
 import gg.steve.mc.batman.sf.framework.yml.Files;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -15,12 +18,14 @@ public class StarfallBlock {
     private int remaining, cooldown;
     private World world;
     private Block block;
+    private Hologram hologram;
 
     public StarfallBlock(UUID starfallId, Block block) {
         this.starfallId = starfallId;
         this.remaining = Files.CONFIG.get().getInt("event-duration");
         this.world = block.getWorld();
         this.block = block;
+        createHologram();
         this.cooldown = Files.CONFIG.get().getInt("event-cooldown");
         saveToFile();
     }
@@ -32,12 +37,23 @@ public class StarfallBlock {
         this.block = this.world.getBlockAt(Files.BLOCK_DATA.get().getInt(starfallId + ".block.x"),
                 Files.BLOCK_DATA.get().getInt(starfallId + ".block.y"),
                 Files.BLOCK_DATA.get().getInt(starfallId + ".block.z"));
+        if (block.getType() != Material.AIR) {
+            createHologram();
+        }
         if (this.starfallId.equals(UUID.fromString(Files.CONFIG.get().getString("persistent-uuid")))) {
             this.cooldown = Files.BLOCK_DATA.get().getInt(UUID.fromString(Files.CONFIG.get().getString("persistent-uuid")) + ".cooldown");
         }
     }
 
+    public void createHologram() {
+        this.hologram = HologramsAPI.createHologram(Starfall.getInstance(), this.block.getLocation().add(0.5, Files.CONFIG.get().getDouble("hologram.mod-y"), 0.5));
+        for (String line : Files.CONFIG.get().getStringList("hologram.text")) {
+            this.hologram.appendTextLine(ColorUtil.colorize(line));
+        }
+    }
+
     public void purge() {
+        this.hologram.delete();
         this.block.setType(Material.AIR);
         Files.BLOCK_DATA.get().set(String.valueOf(this.starfallId), null);
         Files.BLOCK_DATA.save();
@@ -104,7 +120,7 @@ public class StarfallBlock {
         return block.getZ();
     }
 
-    public boolean isLooking(Player player) {
-        return player.getTargetBlockExact(3).equals(this.block);
+    public Hologram getHologram() {
+        return hologram;
     }
 }

@@ -11,6 +11,12 @@ event-cooldown: 21600 # 6 hours
 
 min-player-limit: 1
 
+hologram:
+  mod-y: 1.6
+  text:
+    - '&c&lStarfall Block'
+    - '&7&o((Hold left-click with a starfall pickaxe to mine it))'
+
 default-world: 'world'
 
 blocked-worlds:

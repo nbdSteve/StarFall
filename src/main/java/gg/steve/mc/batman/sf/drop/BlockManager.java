@@ -70,6 +70,7 @@ public class BlockManager {
     public static void shutdown() {
         for (UUID starfallId : activeStarfalls.keySet()) {
             activeStarfalls.get(starfallId).saveToFile();
+            activeStarfalls.get(starfallId).getHologram().delete();
         }
         activeStarfalls.clear();
     }
@@ -101,12 +102,21 @@ public class BlockManager {
         if (!isStarfallBlock(block)) return;
         StarfallBlock starfall = getStarfallFromBlock(block);
         if (starfall.getStarfallId().equals(UUID.fromString(Files.CONFIG.get().getString("persistent-uuid")))) {
+            starfall.getHologram().delete();
             starfall.setRemaining(0);
             starfall.getBlock().setType(Material.AIR);
         } else {
             activeStarfalls.remove(starfall.getStarfallId());
             starfall.purge();
         }
+    }
+
+    public static void cancel() {
+        StarfallBlock starfall = activeStarfalls.get(UUID.fromString(Files.CONFIG.get().getString("persistent-uuid")));
+        if (starfall.getRemaining() <= 0) return;
+        starfall.getHologram().delete();
+        starfall.setRemaining(0);
+        starfall.getBlock().setType(Material.AIR);
     }
 
     public static StarfallBlock getStarfallFromBlock(Block block) {
