@@ -22,3 +22,38 @@ radius-set:
   action-bar: false
   text:
     - '&5&lStarfall&d| &7You have successfully set the radius of the starfall to &e{radius} &7blocks, the center is &eX: {block-x}&7, &eZ: {block-z}&7.'
+
+give-item-giver:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7You have given &6{player} &e{amount}x &7starfall spark(s).'
+
+give-item-receiver:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7You have received &e{amount}x &7starfall spark(s).'
+
+give-tool-giver:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7You have given &6{player} &e{amount}x &b{tool-id} &7starfall tool(s).'
+
+give-tool-receiver:
+  action-bar: false
+  text:
+    - '&5&lStarfall&d| &7You have received &e{amount}x &b{tool-id} &7starfall tool(s).'
+
+player-not-online:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7The target player must be online.'
+
+invalid-amount:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7The amount you entered is invalid.'
+
+invalid-tool:
+  action-bar: false
+  text:
+    - '&5&lStarfall &4(&c&lERROR&4)&d| &7The tool name you entered does not exist.'

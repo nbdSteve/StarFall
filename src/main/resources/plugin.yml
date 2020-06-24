@@ -4,6 +4,7 @@ main: gg.steve.mc.batman.sf.Starfall
 api-version: 1.15.2
 prefix: Starfall
 authors: [stevegoodhill]
+depend: [ProtocolLib]
 description: Custom plugin developed for Batman#3821. Plugin spawns in a block that can be mined by players to give loot.
 commands:
   starfall:

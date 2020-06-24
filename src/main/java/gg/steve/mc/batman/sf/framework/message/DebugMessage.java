@@ -14,6 +14,13 @@ public enum DebugMessage {
     INCORRECT_ARGS("incorrect-args"),
     INVALID_RADIUS("invalid-radius"),
     RADIUS_SET("radius-set", "{block-x}", "{block-z}", "{radius}"),
+    INVALID_AMOUNT("invalid-amount"),
+    PLAYER_NOT_ONLINE("player-not-online"),
+    INVALID_TOOL("invalid-tool"),
+    GIVE_ITEM_GIVER("give-item-giver", "{player}", "{amount}"),
+    GIVE_ITEM_RECEIVER("give-item-receiver", "{amount}"),
+    GIVE_TOOL_GIVER("give-tool-giver", "{player}", "{amount}", "{tool-id}"),
+    GIVE_TOOL_RECEIVER("give-tool-receiver", "{amount}", "{tool-id}"),
     INSUFFICIENT_PERMISSION("insufficient-permission", "{node}");
 
     private String path;

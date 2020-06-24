@@ -10,6 +10,8 @@ public enum Files {
     CONFIG("starfall.yml"),
     // permissions
     PERMISSIONS("permissions.yml"),
+    // picks
+    PICKAXES("pickaxes.yml"),
     // data
     RADIUS_DATA("data" + File.separator + "radius.yml"),
     BLOCK_DATA("data" + File.separator + "blocks.yml"),

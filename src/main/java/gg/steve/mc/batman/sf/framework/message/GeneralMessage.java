@@ -13,6 +13,9 @@ import java.util.List;
 
 public enum GeneralMessage {
     STARFALL_SPAWN("starfall-spawn", "{block-x}", "{block-z}"),
+    STARFALL_TIMER("starfall-timer", "{hours}", "{minutes}", "{seconds}"),
+    STARFALL_END("starfall-end"),
+    TOO_FEW_PLAYERS("too-few-players"),
     RELOAD("reload"),
     HELP("help");
 

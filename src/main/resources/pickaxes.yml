@@ -1,0 +1,79 @@
+wooden-30:
+  material: 'wood_pickaxe'
+  data: 0
+  duration: 600
+  name: '&6&lStarfall Pickaxe'
+  lore:
+    - ''
+    - '&7Use this Pickaxe to mine starfalls.'
+    - '&7It will take this Pickaxe &e30 &7seconds'
+    - '&7to mine the starfall.'
+  enchantments:
+    - 'durability:10'
+    - 'dig_speed:10'
+  item-flags:
+  unbreakable: true
+
+gold-25:
+  material: 'gold_pickaxe'
+  data: 0
+  duration: 500
+  name: '&6&lStarfall Pickaxe'
+  lore:
+    - ''
+    - '&7Use this Pickaxe to mine starfalls.'
+    - '&7It will take this Pickaxe &e25 &7seconds'
+    - '&7to mine the starfall.'
+  enchantments:
+    - 'durability:10'
+    - 'dig_speed:10'
+  item-flags:
+  unbreakable: true
+
+iron-20:
+  material: 'iron_pickaxe'
+  data: 0
+  duration: 400
+  name: '&6&lStarfall Pickaxe'
+  lore:
+    - ''
+    - '&7Use this Pickaxe to mine starfalls.'
+    - '&7It will take this Pickaxe &e20 &7seconds'
+    - '&7to mine the starfall.'
+  enchantments:
+    - 'durability:10'
+    - 'dig_speed:10'
+  item-flags:
+  unbreakable: true
+
+diamond-15:
+  material: 'diamond_pickaxe'
+  data: 0
+  duration: 300
+  name: '&6&lStarfall Pickaxe'
+  lore:
+    - ''
+    - '&7Use this Pickaxe to mine starfalls.'
+    - '&7It will take this Pickaxe &e15 &7seconds'
+    - '&7to mine the starfall.'
+  enchantments:
+    - 'durability:10'
+    - 'dig_speed:10'
+  item-flags:
+  unbreakable: true
+
+debug:
+  material: 'diamond_pickaxe'
+  data: 0
+  duration: 60
+  name: '&6&lStarfall Pickaxe'
+  lore:
+    - ''
+    - '&7Use this Pickaxe to mine starfalls.'
+    - '&7It will take this Pickaxe &e3 &7seconds'
+    - '&7to mine the starfall.'
+  enchantments:
+    - 'durability:10'
+    - 'dig_speed:10'
+  item-flags:
+  unbreakable: true

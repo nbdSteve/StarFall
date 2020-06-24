@@ -1,10 +1,14 @@
-package gg.steve.mc.batman.sf.framework.yml;
+package gg.steve.mc.batman.sf.framework;
 
 import gg.steve.mc.batman.sf.cmd.StarfallCmd;
+import gg.steve.mc.batman.sf.core.StarfallItem;
+import gg.steve.mc.batman.sf.core.StarfallToolManager;
 import gg.steve.mc.batman.sf.drop.BlockManager;
 import gg.steve.mc.batman.sf.drop.RadiusCache;
 import gg.steve.mc.batman.sf.drop.SpawnBlockUtil;
+import gg.steve.mc.batman.sf.framework.yml.Files;
 import gg.steve.mc.batman.sf.framework.yml.utils.FileManagerUtil;
+import gg.steve.mc.batman.sf.listener.BlockBreakListener;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +29,7 @@ public class SetupManager {
     public static void setupFiles(FileManagerUtil fm) {
         fileManager = fm;
         Files.CONFIG.load(fm);
+        Files.PICKAXES.load(fm);
         Files.PERMISSIONS.load(fm);
         Files.DEBUG.load(fm);
         Files.MESSAGES.load(fm);
@@ -44,6 +49,8 @@ public class SetupManager {
     public static void registerEvents(JavaPlugin instance) {
         PluginManager pm = instance.getServer().getPluginManager();
         pm.registerEvents(new SpawnBlockUtil(), instance);
+        pm.registerEvents(new StarfallItem(), instance);
+        pm.registerEvents(new BlockBreakListener(), instance);
     }
 
     public static void registerEvent(JavaPlugin instance, Listener listener) {
@@ -53,9 +60,13 @@ public class SetupManager {
     public static void loadPluginCache() {
         RadiusCache.loadRadiusData();
         BlockManager.initialise();
+        StarfallItem.loadItem(Files.CONFIG.get());
+        StarfallToolManager.loadTools();
+        new BlockBreakListener();
     }
 
     public static void shutdownPluginCache() {
+        StarfallToolManager.shutdown();
         BlockManager.shutdown();
     }
 

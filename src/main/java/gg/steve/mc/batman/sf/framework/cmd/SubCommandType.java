@@ -7,6 +7,7 @@ public enum SubCommandType {
     RADIUS_CMD(new RadiusSubCmd()),
     GIVE_CMD(new GiveSubCmd()),
     HELP_CMD(new HelpSubCmd()),
+    GIVE_ITEM(new GiveItemSubCmd()),
     RELOAD_CMD(new ReloadSubCmd());
 
     private SubCommand sub;

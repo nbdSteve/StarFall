@@ -1,13 +1,15 @@
 package gg.steve.mc.batman.sf.framework.utils;
 
-import gg.steve.mc.batman.sf.framework.yml.PluginFile;
 import gg.steve.mc.batman.sf.framework.nbt.NBTItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import sun.security.krb5.Config;
 
 import java.util.*;
 
@@ -116,11 +118,21 @@ public class ItemBuilderUtil {
         nbtItem.setBoolean("tools+.gui", true);
     }
 
-    public void addNBT(PluginFile file) {
+    public void addItemNBT(YamlConfiguration config) {
         nbtItem = new NBTItem(item);
-        if (file.get().getBoolean("unbreakable")) {
+        if (config.getBoolean("unbreakable")) {
             nbtItem.setBoolean("Unbreakable", true);
         }
+        nbtItem.setBoolean("starfall.item", true);
+    }
+
+    public void addPickaxeNBT(ConfigurationSection section, String toolId) {
+        nbtItem = new NBTItem(item);
+        if (section.getBoolean("unbreakable")) {
+            nbtItem.setBoolean("Unbreakable", true);
+        }
+        nbtItem.setBoolean("starfall.pickaxe", true);
+        nbtItem.setString("starfall.id", toolId);
     }
 
     public void setItemMeta(ItemMeta itemMeta) {

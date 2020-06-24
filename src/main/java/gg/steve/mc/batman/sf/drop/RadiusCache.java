@@ -6,12 +6,9 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import java.util.Random;
-
 public class RadiusCache {
     private static YamlConfiguration conf;
     private static int radius, centerX, centerZ, spawnHeight;
-    private static Random rand;
 
     public static void loadRadiusData() {
         conf = Files.RADIUS_DATA.get();
@@ -19,12 +16,11 @@ public class RadiusCache {
         centerX = conf.getInt("center.x");
         centerZ = conf.getInt("center.z");
         spawnHeight = Files.CONFIG.get().getInt("spawned-block.height");
-        rand = new Random();
     }
 
     public static Block getBlockInRadius(World world) {
-        int x = rand.nextInt(Math.abs(centerX + radius) - (centerX - radius)) + (centerX - radius),
-                z = rand.nextInt(Math.abs((centerZ + radius) - (centerZ - radius))) + (centerZ - radius);
+        int x = Math.min(centerX - radius, centerX + radius) + (int) Math.round(-0.5f + (1 + Math.abs((centerX - radius) - (centerX + radius))) * Math.random());
+        int z = Math.min(centerZ - radius, centerZ + radius) + (int) Math.round(-0.5f + (1 + Math.abs((centerZ - radius) - (centerZ + radius))) * Math.random());
         return world.getBlockAt(x, spawnHeight, z);
     }
 

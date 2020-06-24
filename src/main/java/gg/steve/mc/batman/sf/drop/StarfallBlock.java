@@ -2,6 +2,7 @@ package gg.steve.mc.batman.sf.drop;
 
 import gg.steve.mc.batman.sf.framework.yml.Files;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -37,6 +38,7 @@ public class StarfallBlock {
     }
 
     public void purge() {
+        this.block.setType(Material.AIR);
         Files.BLOCK_DATA.get().set(String.valueOf(this.starfallId), null);
         Files.BLOCK_DATA.save();
     }
@@ -64,6 +66,14 @@ public class StarfallBlock {
 
     public void decrementRemaining() {
         this.remaining--;
+    }
+
+    public void setRemaining(int remaining) {
+        this.remaining = remaining;
+    }
+
+    public void resetCooldown() {
+        this.cooldown = Files.CONFIG.get().getInt("event-cooldown");
     }
 
     public int getCooldown() {
